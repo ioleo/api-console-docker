@@ -1,44 +1,31 @@
 # API Console docker image
 
-A [Docker](http://www.docker.io/) image to run the [API Console](https://github.com/mulesoft/api-console) for your REST API documentation with [RAML](http://raml.org).
+A [Docker](http://www.docker.io/) image to run the [API Console](https://github.com/mulesoft/api-console) for 
+your REST API documentation with [RAML](http://raml.org).
 
 ## Installation
 
+### Mounting volume
+
+The image must be run from path containing `main.raml` or a directory containing such file must be mounted at
+`/usr/share/nginx/html/apis`.
+
 ### How to run this image
 
-`docker run -p 8080:80-v /raml_dir:/usr/share/nginx/html/apis -d loostro/api-console -v`
+`docker run -p 8080:80 -d loostro/api-console -v`
 
 Then, access it via `http://localhost:8080` in a browser.
 
 ### Options
 
-You can conrol various options via environment variables.
+API Console can be controlled by `/options.conf` file.
 
-##### INDEX_FILE (default `main.raml`)
+The file must be a simple `key=value` configuration and accepts following keys:
 
-Path to API entrypoint relative to mounted volume's root.
-
-##### SINGLE_VIEW (default `false`)
-
-In *Single View* mode you will be able to see only documentation or try-it.
-
-##### DISABLE_THEME_SWITCHER (default `false`)
-
-*Theme Switcher* can be disabled by setting this to `true`.
-
-##### DISABLE_RAML_CLIENT_GENERATOR (default `false`)
-
-*Raml Client Generator* can be disabled by setting this to `true`.
-
-##### RESOURCES_COLLAPSED (default `false`)
-
-Should resources be collapsed by default?
-
-##### ALLOW_UNSAFE_MARKDOWN (default `false`)
-
-Should unsafe Markdown be allowed?
-
-##### DISABLE_TRY_IT (default `false`)
-
-*Try it* can be disabled by setting this to `true`.
-
+* **singleView** (*true|false*, default: `false`)
+* **disableThemeSwitcher** (*true|false*, default: `true`)
+* **disableRamlClientGenerator** (*true|false*, default: `true`)
+* **resourcesCollapsed** (*true|false*, default: `true`)
+* **documentationCollapsed** (*true|false*, default: `false`)
+* **allowUnsafeMarkdown** (*true|false*, default: `false`)
+* **disableTryIt** (*true|false*, default: `true`)

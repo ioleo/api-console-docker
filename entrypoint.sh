@@ -22,8 +22,9 @@ EOF
 OPTIONS=$(echo $OPTIONS | sed 's/ \{1,\}/ /g')
 
 SEARCH="<raml-initializer><\/raml-initializer>"
-REPLACE="<raml-console-loader src=\"apis\/main.raml\" options=\"$OPTIONS\"><\/raml-console-loader>"
+REPLACE="<raml-console-loader src=\"raml\/main.raml\" options=\"$OPTIONS\"><\/raml-console-loader>"
 
-sed -i "s/$SEARCH/$REPLACE/g" /usr/share/nginx/html/index.html
+sed -i "s/$SEARCH/$REPLACE/g" /app/index.html
+sed -i 's|/usr/share/nginx/html|/app|g' /etc/nginx/conf.d/default.conf
 
 exec /usr/sbin/nginx -g "daemon off;"

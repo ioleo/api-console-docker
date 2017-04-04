@@ -8,11 +8,11 @@ your REST API documentation with [RAML](http://raml.org).
 ### Mounting volume
 
 The image must be run from path containing `main.raml` or a directory containing such file must be mounted at
-`/usr/share/nginx/html/apis`.
+`/app/raml`.
 
 ### How to run this image
 
-`docker run -p 8080:80 -d loostro/api-console -v`
+`docker run -p 8080:80 -v /host/absolute/path/to/raml:/app/raml -d loostro/api-console`
 
 Then, access it via `http://localhost:8080` in a browser.
 

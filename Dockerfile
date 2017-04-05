@@ -12,5 +12,6 @@ COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 
 ADD /raml /app/raml
+ENV MAIN_RAML_PATH="main.raml"
 
 ENTRYPOINT ["/opt/entrypoint.sh"]

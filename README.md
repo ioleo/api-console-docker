@@ -12,9 +12,9 @@ The image must be run from path containing `main.raml` or a directory containing
 
 ### How to run this image
 
-`docker run -p 8080:80 -v /host/absolute/path/to/raml:/app/raml -d loostro/api-console`
+`docker run -p 4000:80 -v$(pwd)/raml:/app/raml -d loostro/api-console:3.0.13`
 
-Then, access it via `http://localhost:8080` in a browser.
+Then, access it via `http://localhost:4000` in a browser.
 
 ### Options
 

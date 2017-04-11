@@ -7,7 +7,7 @@ your REST API documentation with [RAML](http://raml.org).
 
 ### Mounting volume
 
-The image must be run from path containing `main.raml` or a directory containing such file must be mounted at
+The image must be run from path containing RAML files or a directory containing such file must be mounted at
 `/app/raml`.
 
 ### How to run this image
@@ -19,6 +19,7 @@ Then, access it via `http://localhost:4000` in a browser.
 ### Environment variables
 
 * **MAIN_RAML_PATH** *string*, default: `main.raml`
+* **PAGE_TITLE** *string*, default: `API Documentation`
 
 ### Options
 

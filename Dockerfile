@@ -13,5 +13,6 @@ RUN chmod +x /opt/entrypoint.sh
 
 ADD /raml /app/raml
 ENV MAIN_RAML_PATH="main.raml"
+ENV PAGE_TITLE="API Documentation"
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
